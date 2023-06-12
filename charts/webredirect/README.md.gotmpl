@@ -1,0 +1,56 @@
+# Helm web redirect
+
+{{ template "chart.badgesSection" . }}
+
+{{ template "chart.description" . }}
+
+{{ template "chart.homepageLine" . }}
+
+{{ template "chart.maintainersSection" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+## Requirements
+* a Kubernetes cluster with a Nginx Ingress installed (i.e. [ingress-nginx](https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx))
+* [Helm CLI](https://helm.sh/docs/intro/install/)
+
+## Installing the chart
+To install the chart:
+```shell
+$ helm repo add anynines https://anynines.github.io/helm-charts
+$ helm install my-redirect anynines/webredirect
+```
+
+{{ template "chart.valuesSection" . }}
+
+## Examples
+### simple redirect
+```yaml
+ingress:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+  source:
+    hosts:
+      - change1.me
+      - change2.me
+  destination:
+    host: "www.anynines.com"
+  tls:
+    enabled: true
+```
+
+### Redirect to subpath
+```yaml
+ingress:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+  source:
+    hosts:
+      - change3.me
+      - change4.me
+  destination:
+    host: "www.anynines.com"
+    path: "/de"
+  tls:
+    enabled: true
+```
