@@ -1,6 +1,6 @@
 apiVersion: v2
 name: webredirect
-version: 0.0.1alpha
+version: 0.0.1-alpha
 description: A Helm chart to create web redirects using an Ingress in Kubernetes
 home: https://anynines.github.io/helm-charts
 sources:

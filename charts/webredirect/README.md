@@ -1,6 +1,6 @@
 # Helm web redirect
 
-![Version: 0.0.1alpha](https://img.shields.io/badge/Version-0.0.1alpha-informational?style=flat-square)
+![Version: 0.0.1-alpha](https://img.shields.io/badge/Version-0.0.1--alpha-informational?style=flat-square)
 
 A Helm chart to create web redirects using an Ingress in Kubernetes
 
