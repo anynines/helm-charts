@@ -1,8 +1,8 @@
-# Helm Webredirect
+# Helm web redirect
 
 ![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square)
 
-A Helm chart to create a web-redirect using an Ingress in Kubernetes
+A Helm chart to create web redirects using an Ingress in Kubernetes
 
 **Homepage:** <https://anynines.github.io/helm-charts>
 
@@ -34,7 +34,7 @@ $ helm install my-redirect anynines/webredirect
 | fullnameOverride | string | `""` | override full name |
 | ingress.annotations | object | `{}` | additional annotations for the Ingress Resource |
 | ingress.className | string | `"nginx"` | className for the Ingress Controller (only Nginx Controllers are supported) |
-| ingress.destination.host | string | `"example.com"` | Hostname of the destination (used for ExternalName service) |
+| ingress.destination.host | string | `"example.com"` | Hostname of the destination |
 | ingress.destination.path | string | `"/"` | Path to redirect to at the destination |
 | ingress.destination.port | int | `443` | Port used on the destination |
 | ingress.destination.redirect_code | int | `301` | Redirect-Code for the type of redirect, see [redirection_messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages) |

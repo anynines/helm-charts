@@ -14,7 +14,7 @@ ingress:
     # -- URLs that should be redirected to the destination
     hosts: []
   destination:
-    # -- Hostname of the destination (used for ExternalName service)
+    # -- Hostname of the destination
     host: "example.com"
     # -- Path to redirect to at the destination
     path: "/"
