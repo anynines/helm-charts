@@ -1,0 +1,19 @@
+apiVersion: v1
+entries:
+  webredirect:
+  - apiVersion: v2
+    created: "2023-06-22T09:55:14.683755349Z"
+    description: A Helm chart to create web redirects using an Ingress in Kubernetes
+    digest: 2a5576607d5b3ea7e0560b6090747dbbd5d650dd5829fdb69eb7c8f98d269011
+    home: https://anynines.github.io/helm-charts
+    maintainers:
+    - email: mmueller@anynines.com
+      name: Maximilian Mueller
+      url: https://managed-services.anynines.com/
+    name: webredirect
+    sources:
+    - https://github.com/anynines/helm-charts
+    urls:
+    - https://github.com/anynines/helm-charts/releases/download/webredirect-0.0.1-alpha/webredirect-0.0.1-alpha.tgz
+    version: 0.0.1-alpha
+generated: "2023-06-22T09:55:14.683764249Z"
