@@ -1,0 +1,39 @@
+{{- $fullName := include "webredirect.fullname" . -}}
+{{- $svcPort := .Values.ingress.destination.port -}}
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "webredirect.labels" . | nindent 4 }}
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/permanent-redirect: "https://{{ .Values.ingress.destination.host }}:{{ $svcPort }}{{ .Values.ingress.destination.path}}"
+    nginx.ingress.kubernetes.io/permanent-redirect-code: "{{ .Values.ingress.destination.redirect_code }}"
+    {{- with .Values.ingress.annotations }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  ingressClassName: {{ .Values.ingress.className }}
+  {{- if eq .Values.ingress.tls.enabled true}}
+  tls:
+    - hosts:
+        {{- range .Values.ingress.source.hosts }}
+        - {{ . | quote }}
+        {{- end }}
+      secretName: {{ $fullName }}
+  {{- end }}
+  rules:
+    {{- range .Values.ingress.source.hosts }}
+    - host: {{ . | quote }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ $fullName }}
+                port:
+                  number: {{ $svcPort }}
+    {{- end }}

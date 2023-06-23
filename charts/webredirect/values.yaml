@@ -1,0 +1,27 @@
+# -- override release name
+nameOverride: ""
+# -- override full name
+fullnameOverride: ""
+
+ingress:
+  # -- className for the Ingress Controller (only Nginx Controllers are supported)
+  className: "nginx"
+  # -- additional annotations for the Ingress Resource
+  annotations: {}
+    # kubernetes.io/tls-acme: "true"
+    # cert-manager.io/cluster-issuer: letsencrypt
+  source:
+    # -- URLs that should be redirected to the destination
+    hosts: []
+  destination:
+    # -- Hostname of the destination
+    host: "example.com"
+    # -- Path to redirect to at the destination
+    path: "/"
+    # -- Port used on the destination
+    port: 443
+    # -- Redirect-Code for the type of redirect, see [redirection_messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages)
+    redirect_code: 301
+  tls:
+    # -- enable/disable TLS certificates (clusterissuer should be configured using annotations)
+    enabled: false
